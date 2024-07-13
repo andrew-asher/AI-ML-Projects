@@ -18,8 +18,8 @@ To run the application locally, follow these steps:
    ```bash
    git clone https://github.com/your-username/Intelligent-Stock-Trader.git
    cd Intelligent-Stock-Trader
-pip install -r requirements.txt
-python app.py
+1. pip install -r requirements.txt
+2. python app.py
 
 ## Dependencies
 
