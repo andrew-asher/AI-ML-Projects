@@ -14,6 +14,7 @@ This project implements a blog creation and proposal generator for job applicati
    git clone <repository_url>
    cd blog-proposal-generator
 2. install necessary requirements
+   
 pip install -r requirements.txt
 
-3. Run - streamlit run blogs.py/proposal.py
+4. Run - streamlit run blogs.py/proposal.py
