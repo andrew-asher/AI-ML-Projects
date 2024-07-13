@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction Dashboard</title>
+    <style>
+        body, h1, label, input, button {
+            font-family: 'Times New Roman', serif;
+        }
+
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #4f6dd9; 
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4f6dd9; 
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4fd9c9;
+            color: #fff;
+        }
+        .nav-right {
+      float: right;
+    }
+
+    .navbar {
+      background-color: #4f6dd9; 
+      overflow: hidden;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="{{ url_for('dataframe') }}" >Check Stocks</a>
+        <a href="{{ url_for('stock_list') }}">Stock List</a>
+        <div class="nav-right">
+          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+      </div>
+    <div class="container">
+        <h1>Check Stocks via Date Range</h1>
+        <form method="post">
+            <label for="stockSymbol">Stock Symbol:</label>
+            <input type="text" id="stockSymbol" name="stockSymbol" required>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" required>
+            <button type="submit">Fetch Data</button>
+        </form>
+
+         <!-- Display stock data if available -->
+<!-- Display stock data if available -->
+{% if stock_data is not none %}
+<!-- Display API key, start date, and end date above the table -->
+<h2>Fetch data from - API Key: {{ stock_symbol }}, Start Date: {{ start_date }}, End Date: {{ end_date }}</h2>
+
+<h2>Stock Data</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for date, row in stock_data.iterrows() %}
+            <tr>
+                <td>{{ date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ row['Open'] }}</td>
+                <td>{{ row['High'] }}</td>
+                <td>{{ row['Low'] }}</td>
+                <td>{{ row['Close'] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Price Prediction Dashboard</title>
+  <style>
+    body, h1, label, input, button {
+      font-family: 'Times New Roman', serif;
+    }
+
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #4f6dd9; /* Red color for the navbar */
+      overflow: hidden;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #2c53c9; /* Darker red color on hover */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #4f6dd9; 
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4f6dd9; /* Red color for the button */
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .chart-container {
+      margin-top: 20px;
+    }
+    .date-inputs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .date-inputs input {
+      width: 48%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4f6dd9;
+      color: #fff;
+    }
+    .nav-right {
+      float: right;
+    }
+  </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="{{ url_for('dataframe') }}" >Check via Date Range</a>
+      <a href="{{ url_for('stock_list') }}">Stock List</a>
+      <div class="nav-right">
+        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Intelligent Stock Trader (IST) Platform</h1>
+      <div class="input-container">
+        <label for="stockSymbol">Stock Symbol:</label>
+        <input type="text" id="stockSymbol" placeholder="Enter Stock Symbol">
+        <button id="fetchButton">Get Data</button>
+      </div>
+      <div class="chart-container">
+        <div id="stockChart" style="height: 400px;"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
