@@ -17,4 +17,4 @@ This project implements a blog creation and proposal generator for job applicati
    
 pip install -r requirements.txt
 
-4. Run - streamlit run blogs.py/proposal.py
+3. Run - streamlit run blogs.py/proposal.py
