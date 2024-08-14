@@ -18,9 +18,9 @@ In this repository, you'll find projects that demonstrate my skills and experien
 ## Introduction
 
 This repository features a diverse set of projects focused on different aspects of AI and ML, including but not limited to:
-- Generative AI
-- Large Language Models
-- Data Analysis
+- Regression Models
+- CNN Models
+- Neural Network Models
 - Predictive Modeling
 - Computer Vision
 - Natural Language Processing
