@@ -1,34 +1,33 @@
-# Healthcare Cost Prediction Using Regression
+# SMS Spam Classification Using Machine Learning
 
-This project involves predicting healthcare costs using a regression algorithm. The project is completed in Python using a dataset that contains various features related to individuals, including their healthcare costs. The goal is to build a model that can accurately predict healthcare expenses based on new data.
+This project involves classifying SMS messages as either "ham" (normal messages) or "spam" (advertisements or unsolicited messages). The project is completed in Python using the SMS Spam Collection dataset.
 
 ## Project Overview
 
 The notebook was originally developed in Google Colaboratory, and I have saved the final version as a Python file locally. The project includes the following steps:
 
 1. **Data Import and Preprocessing:**
-   - Imported the necessary libraries and the dataset.
-   - Handled categorical data by converting them into numerical values.
-   - Split the dataset into training (80%) and testing (20%) sets.
-   - Created labels for training and testing by popping off the `expenses` column.
+   - Imported the necessary libraries and the SMS Spam Collection dataset.
+   - Preprocessed the text data to make it suitable for model training.
 
 2. **Model Building and Training:**
-   - Developed a regression model to predict healthcare costs.
-   - Trained the model using the training dataset.
-   - Evaluated the model using the testing dataset to ensure it generalizes well.
+   - Developed a machine learning model to classify SMS messages as "ham" or "spam".
+   - Trained the model using the provided training dataset.
+   - Created a function `predict_message` that takes a message string as input and returns a list with:
+     - A probability score between 0 and 1 indicating the likelihood of the message being "ham" (0) or "spam" (1).
+     - The predicted label "ham" or "spam".
 
 3. **Model Evaluation:**
-   - The model was evaluated using the Mean Absolute Error (MAE) metric.
-   - The target was to achieve an MAE of under 3500, meaning the model predicts healthcare costs with an error of less than $3500.
+   - Evaluated the model using the testing dataset to ensure its accuracy and generalization capabilities.
 
-4. **Results Visualization:**
-   - Plotted the predicted versus actual healthcare costs using the test dataset.
+4. **Function Testing:**
+   - The final cell in the notebook tests the `predict_message` function and checks the model's performance on unseen data.
 
 ## Getting Started
 
-To run the project, clone this repository and run the Python file locally. The project requires Python and the necessary libraries such as Pandas, NumPy, Matplotlib, and TensorFlow/Keras.
+To run the project, clone this repository and run the Python file locally. The project requires Python and the necessary libraries such as Pandas, Scikit-learn, and NLTK.
 
 ```bash
-git clone https://github.com/yourusername/healthcare-cost-prediction.git
-cd healthcare-cost-prediction
-python healthcare_cost_prediction.py
+git clone https://github.com/yourusername/sms-spam-classification.git
+cd sms-spam-classification
+python sms_spam_classification.py
